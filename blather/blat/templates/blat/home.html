@@ -1,0 +1,20 @@
+{% extends "blat/master.html" %}
+{% load humanize %}
+{% block content%}
+{% if blat_list %}
+	Blats found 
+{% else %}
+	No Blats found
+{% endif %}
+{% for blat in blat_list %}
+	{{ blat.text }} <br/>
+	<a href="{{blat.id}}/">{{ blat.created_on|naturaltime}}</a><br/>
+	@{{ blat.created_by }} <br/>
+	{{ blat.total_likes }} <br/>
+	{% if blat.created_by == user %}
+		<a href="{% url 'edit_blat_form' pk=blat.id %}">edit this</a><br/>
+	{% else %}
+	LOGIN TO EDIT<br/>
+	{% endif %}
+{% endfor %}	
+{% endblock %}	

@@ -1,0 +1,12 @@
+{% extends "blat/master.html" %}
+{% block title%}
+	Blats Login
+{% endblock %}
+{% block content%}
+<form name="dummy_user_form" action='{% url "login"%}?next=/' method="post">
+	{{ form.as_p }}
+	{% csrf_token %}
+	<input type="submit" value="login"/>
+	<input type="reset" value="reset"/>
+</form>
+{% endblock %}

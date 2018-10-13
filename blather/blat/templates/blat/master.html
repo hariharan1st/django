@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>
+			{% block title %}
+				Default title from master
+			{% endblock %}
+		</title>
+	</head>
+	<body>
+		{% if user.is_authenticated %}
+		<a href="{% url 'logout' %}?next=/">Logout</a><br/>
+		BIO : {{ user.profile.bio }}<br/>
+		BLOG : <a href="{{user.profile.blog}}">{{ user }}</a><br/>
+
+		{% else %}
+		<a href="{% url 'login' %}?next=/">Login</a>
+		{% endif %}
+		{% block content %}
+		{% endblock %}	
+	</body>
+</html>

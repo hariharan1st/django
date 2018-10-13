@@ -1,0 +1,12 @@
+{% extends "blat/master.html" %}
+{% block title%}
+	New Blats - Form Page
+{% endblock %}
+{% block content%}
+<form action="" method="post">
+	{{ form }}
+	{% csrf_token %}
+<input type="submit" value="submit"/>
+<input type="reset" value="reset"/>
+</form>
+{% endblock %}

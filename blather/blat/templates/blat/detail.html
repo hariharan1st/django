@@ -1,0 +1,10 @@
+{% extends "blat/master.html" %}
+{% block title%}
+	Blats Details List
+{% endblock %}
+{% block content%}
+{{ blat.text }} <br/>
+{{ blat.created_on}} <br/>
+{{ blat.total_likes }} <br/>
+{{ blat.created_by}} <br/>
+{% endblock %}
